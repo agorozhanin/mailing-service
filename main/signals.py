@@ -14,7 +14,7 @@ from main.tasks import send_mailing_to_clients
 @receiver(post_save, sender=Mailing)
 def post_save_mailing_signal(sender, created, instance, **kwargs):
     """
-    Сигнал, вызываемый сохранением рассылки
+    Сигнал, вызываемый после создания рассылки
     """
     if created:
         need_clients = get_clients_by_tag_and_code_phone(tag=instance.tag, code_phone=instance.code_phone)
